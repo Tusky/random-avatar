@@ -1,0 +1,3 @@
+[submodule "facesjs"]
+	path = facesjs
+	url = git@github.com:dumbmatter/facesjs.git
