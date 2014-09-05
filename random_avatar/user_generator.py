@@ -69,6 +69,7 @@ class UserGenerator(object):
         return biography.strip()
 
     def _get_name(self, gender, depth=0):
+        random.seed()
         first_name = random.choice(self.male_names if gender == 1 else self.female_names)
         second_name = random.choice(self.second_names)
         if depth > 5:
