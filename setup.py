@@ -2,16 +2,16 @@
 from setuptools import setup
 
 description = "Set of random avatars with generator scripts."
-docs_file = 'docs.txt'
 
 setup(name='Random Avatar',
-    version = '0.01',
+    version = '0.02',
     description = description,
     long_description = description,
     author = 'Samuel Colvin',
     license = 'MIT',
     author_email = 'S@muelColvin.com',
     url = 'https://github.com/samuelcolvin/random-avatar',
+    package = ["random_avatar"],
     install_requires=[
         'avatar-generator==0.0.13',
     ],

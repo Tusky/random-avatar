@@ -19,13 +19,11 @@ class AvatarGenerator(Avatar):
 
 
 class UserGenerator(object):
-    age_from = 0
-    age_to = 100
-    first_name = None
-    second_name = None
-
-    def __init__(self, fake_string=""):
-        self.used_names = set()
+    def __init__(self, fake_string="", age_from=0, age_to=100, second_name=None, used_names=set()):
+        self.age_from = age_from
+        self.age_to = age_to
+        self.second_name = second_name
+        self.used_names = used_names
         self.fake_string = fake_string
         dname = os.path.dirname(__file__)
         data = json.load(open(os.path.join(dname, 'random_data.json'), 'r'))
@@ -45,6 +43,7 @@ class UserGenerator(object):
         gender = random.choice([1, 2])
         first_name, second_name_supplied = self._get_name(gender)
         second_name = self.second_name if self.second_name else second_name_supplied
+        self.used_names.add((first_name, second_name))
         return {
             'avatar': AvatarGenerator().generate(128, first_name[0] + second_name[0]),
             'biography': self._get_bio(),
