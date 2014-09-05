@@ -1,0 +1,1 @@
+avatar-generator==0.0.13
